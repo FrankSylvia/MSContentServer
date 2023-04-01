@@ -23,32 +23,6 @@
 			<version>3.6.1</version>
 		</dependency>
 	</dependencies>
-	<profiles>
-		<profile>
-			<id>dev</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
-			<properties>
-				<webpath>web</webpath>
-			</properties>
-
-		</profile>
-		<profile>
-			<id>test</id>
-			<properties>
-				<webpath>webTest</webpath>
-			</properties>
-
-		</profile>
-		<profile>
-			<id>prod</id>
-			<properties>
-				<webpath>webProduction</webpath>
-			</properties>
-
-		</profile>
-	</profiles>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<directory>${project.basedir}/release</directory>
@@ -80,7 +54,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.0</version>
 				<configuration>
-					<webXml>${pom.basedir}/${webpath}/WEB-INF/web.xml</webXml>
+					<webXml>${pom.basedir}/WEB-INF/web.xml</webXml>
 					<webResources>
 						<resource>
 							<directory>resources</directory>
