@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>edu.umass.ckc</groupId>
+	<version>0.0.1-SNAPSHOT-${build.number}</version>
+	<artifactId>ms</artifactId>
+	<packaging>war</packaging>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.16</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math3</artifactId>
+			<version>3.6.1</version>
+		</dependency>
+	</dependencies>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<webpath>web</webpath>
+			</properties>
+
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<webpath>webTest</webpath>
+			</properties>
+
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<webpath>webProduction</webpath>
+			</properties>
+
+		</profile>
+	</profiles>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<directory>${project.basedir}/release</directory>
+		<finalName>MSContent</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<warName>ms</warName>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:8080/manager/text</url>
+					<server>tomcatLocal</server>
+					<path>/ms</path>
+					<username>neeraj</username>
+					<password>neeraj</password>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.0</version>
+				<configuration>
+					<webXml>${pom.basedir}/${webpath}/WEB-INF/web.xml</webXml>
+					<webResources>
+						<resource>
+							<directory>resources</directory>
+						</resource>
+
+					</webResources>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+						<manifestEntries>
+							<Implementation-Version>${build.number}</Implementation-Version>
+						</manifestEntries>
+					</archive>
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
