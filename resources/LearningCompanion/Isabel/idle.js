@@ -925,6 +925,13 @@ if (reversed == null) { reversed = false; }
 	this.frame_200 = function() {
 		/* stop();
 		_root.characterControl("idle");*/
+		
+		var _this = this;
+		/*
+		Moves the playhead to the specified frame number in the timeline and stops the movie.
+		Can be used on the main timeline or on movie clip timelines.
+		*/
+		_this.gotoAndStop(201);
 		var _this = this;
 		/*
 		Moves the playhead to the specified frame number in the timeline and stops the movie.
