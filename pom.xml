@@ -80,7 +80,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.0</version>
 				<configuration>
-					<webXml>${pom.basedir}/WEB-INF/web.xml</webXml>
+					<webXml>${pom.basedir}resources/WEB-INF/web.xml</webXml>
 					<webResources>
 						<resource>
 							<directory>resources</directory>
