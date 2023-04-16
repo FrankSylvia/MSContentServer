@@ -1,10 +1,16 @@
 <html>
 <head>
-
+<script>
+function load()
+{
+document.frm1.submit()
+}
+</script>
 </head>
-Mathspring Content Server
 
-04-01-23	Frank Initial Partial Load of Isabel utterances
-
+<body onload="load()">
+<form action="MSContent.jsp?start=yes" id="frm1" name="frm1">
+<input hidden type="text" value="" />
+</form>
 </body>
-</html> 
+</html>
