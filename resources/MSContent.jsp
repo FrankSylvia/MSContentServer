@@ -151,7 +151,7 @@ else {
 		var serverName = document.getElementById("servername").value;
 		if (serverName == "local") {
 			server = "http://localhost:8080/MSContent/";
-			var url = server + 'LearningCompanion/' + document.getElementById("lcname").value + '/' + 'Amazing.html';
+			var url = server + 'LearningCompanion/' + document.getElementById("lcname").value + '/' + 'YourTurn.html';
 	        httpHead(url, successfulLCResult, failureLCResult);
 	        
 			var url = server + 'LearningCompanion/' + document.getElementById("lcname").value + '/' + document.getElementById("lcmessage").value + '.html';
@@ -159,7 +159,7 @@ else {
 		}
 		if (serverName == "dev") {
 			server = "https://dev.mathspring.org:8443//MSContent/";
-			var url = server + 'LearningCompanion/' + document.getElementById("lcname").value + '/' + 'Amazing.html';
+			var url = server + 'LearningCompanion/' + document.getElementById("lcname").value + '/' + 'YourTurn.html';
 	        httpHead(url, successfulLCResult, failureLCResult);
 			var url = server + 'LearningCompanion/' + document.getElementById("lcname").value + '/' + document.getElementById("lcmessage").value + '.html';
 	        httpHead(url, successfulLCResult, failureLCResult);
