@@ -101,7 +101,7 @@ else {
             <br><br>
          	<div class="row">
             	<div class="col-md-12 col-sm-12" align="center">
-                	<button class="btn btn-primary btn-medium" aria-disabled="true" onclick="loadIframe()"><%= rb.getString("run_animation") %></button>
+                	<button class="btn btn-primary btn-medium" aria-disabled="true" onclick="loadIframe()"><%= rb.getString("choose_animation") %></button>
            		</div>
         	</div>
         </div>
@@ -153,6 +153,9 @@ else {
 			server = "http://localhost:8080/MSContent/";
 			var url = server + 'LearningCompanion/' + document.getElementById("lcname").value + '/' + 'YourTurn.html';
 	        httpHead(url, successfulLCResult, failureLCResult);
+
+	        alert("<%= rb.getString("run_animation") %>");
+	        
 	        
 			var url = server + 'LearningCompanion/' + document.getElementById("lcname").value + '/' + document.getElementById("lcmessage").value + '.html';
 	        httpHead(url, successfulLCResult, failureLCResult);
@@ -161,6 +164,9 @@ else {
 			server = "https://dev.mathspring.org:8443//MSContent/";
 			var url = server + 'LearningCompanion/' + document.getElementById("lcname").value + '/' + 'YourTurn.html';
 	        httpHead(url, successfulLCResult, failureLCResult);
+	        
+	        alert("<%= rb.getString("run_animation") %>");
+	        
 			var url = server + 'LearningCompanion/' + document.getElementById("lcname").value + '/' + document.getElementById("lcmessage").value + '.html';
 	        httpHead(url, successfulLCResult, failureLCResult);
 		}
