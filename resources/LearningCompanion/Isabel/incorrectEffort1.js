@@ -27,14 +27,14 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_50 = function() {
+(lib.CachedBmp_54 = function() {
 	this.initialize(ss["incorrectEffort1_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_49 = function() {
+(lib.CachedBmp_53 = function() {
 	this.initialize(ss["incorrectEffort1_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
@@ -2686,10 +2686,10 @@ if (reversed == null) { reversed = false; }
 	this.text.parent = this;
 	this.text.setTransform(130.5,23.25);
 
-	this.instance_13 = new lib.CachedBmp_49();
+	this.instance_13 = new lib.CachedBmp_53();
 	this.instance_13.setTransform(12.65,12.75,0.5,0.5);
 
-	this.instance_14 = new lib.CachedBmp_50();
+	this.instance_14 = new lib.CachedBmp_54();
 	this.instance_14.setTransform(12.65,12.75,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_13},{t:this.text,p:{text:"Estas son las preguntas difíciles que me gustan. Hay una oportunidad de aprender! "}}]},17).to({state:[{t:this.instance_14},{t:this.text,p:{text:"Hagamos click en el botón de ayuda."}}]},112).wait(84));
