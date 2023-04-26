@@ -27,14 +27,14 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_16 = function() {
+(lib.CachedBmp_23 = function() {
 	this.initialize(ss["noEffortAttribution3_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_15 = function() {
+(lib.CachedBmp_22 = function() {
 	this.initialize(ss["noEffortAttribution3_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
@@ -2611,9 +2611,17 @@ if (reversed == null) { reversed = false; }
 	this.frame_19 = function() {
 		playSound("noEffortAttribution3_1");
 	}
+	this.frame_250 = function() {
+		var _this = this;
+		/*
+		Moves the playhead to the specified frame number in the timeline and stops the movie.
+		Can be used on the main timeline or on movie clip timelines.
+		*/
+		_this.gotoAndStop(251);
+	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(19).call(this.frame_19).wait(232));
+	this.timeline.addTween(cjs.Tween.get(this).wait(19).call(this.frame_19).wait(231).call(this.frame_250).wait(1));
 
 	// table
 	this.instance = new lib.gdesk("synched",0);
@@ -2671,20 +2679,20 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_7},{t:this.instance_6}]}).to({state:[{t:this.instance_8}]},2).to({state:[{t:this.instance_9}]},15).to({state:[{t:this.instance_10}]},2).to({state:[{t:this.instance_12,p:{startPosition:2}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},1).to({state:[{t:this.instance_12,p:{startPosition:1}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).to({state:[{t:this.instance_12,p:{startPosition:3}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).to({state:[{t:this.instance_12,p:{startPosition:1}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).to({state:[{t:this.instance_12,p:{startPosition:3}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},9).to({state:[{t:this.instance_12,p:{startPosition:1}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).to({state:[{t:this.instance_12,p:{startPosition:2}},{t:this.instance_11,p:{scaleY:0.8321,x:151.8,startPosition:0}}]},6).to({state:[{t:this.instance_12,p:{startPosition:1}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},3).to({state:[{t:this.instance_12,p:{startPosition:2}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).to({state:[{t:this.instance_12,p:{startPosition:2}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).wait(201));
 
 	// bubble
-	this.text = new cjs.Text("Sabías que cuando practicamos para aprender conceptos nuevos y habilidades,", "15px 'Arial'", "#282415");
+	this.text = new cjs.Text("Sabías que cuando practicamos para aprender conceptos nuevos y habilidades,", "15px 'Helvetica'", "#282415");
 	this.text.textAlign = "center";
 	this.text.lineHeight = 18;
-	this.text.lineWidth = 213;
+	this.text.lineWidth = 227;
 	this.text.parent = this;
-	this.text.setTransform(130.5,23.25);
+	this.text.setTransform(131.5,23.25);
 
-	this.instance_13 = new lib.CachedBmp_15();
+	this.instance_13 = new lib.CachedBmp_22();
 	this.instance_13.setTransform(12.65,12.75,0.5,0.5);
 
-	this.instance_14 = new lib.CachedBmp_16();
+	this.instance_14 = new lib.CachedBmp_23();
 	this.instance_14.setTransform(12.65,12.75,0.5,0.5);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_13},{t:this.text,p:{text:"Sabías que cuando practicamos para aprender conceptos nuevos y habilidades,"}}]},17).to({state:[{t:this.instance_14},{t:this.text,p:{text:"nuestro cerebro se hace más fuerte? No es increíble?"}}]},127).wait(107));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_13},{t:this.text,p:{x:131.5,text:"Sabías que cuando practicamos para aprender conceptos nuevos y habilidades,",lineWidth:227}}]},17).to({state:[{t:this.instance_14},{t:this.text,p:{x:130.5,text:"nuestro cerebro se hace más fuerte? No es increíble?",lineWidth:213}}]},127).wait(107));
 
 	// chair
 	this.instance_15 = new lib.gchair("synched",0);
@@ -2829,21 +2837,6 @@ an.handleSoundStreamOnTick = function(event) {
 		var stageChild = stage.getChildAt(0);
 		if(!stageChild.paused || stageChild.ignorePause){
 			stageChild.syncStreamSounds();
-		}
-	}
-}
-an.handleFilterCache = function(event) {
-	if(!event.paused){
-		var target = event.target;
-		if(target){
-			if(target.filterCacheList){
-				for(var index = 0; index < target.filterCacheList.length ; index++){
-					var cacheInst = target.filterCacheList[index];
-					if((cacheInst.startFrame <= target.currentFrame) && (target.currentFrame <= cacheInst.endFrame)){
-						cacheInst.instance.cache(cacheInst.x, cacheInst.y, cacheInst.w, cacheInst.h);
-					}
-				}
-			}
 		}
 	}
 }

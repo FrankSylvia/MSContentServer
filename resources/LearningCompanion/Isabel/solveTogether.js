@@ -27,14 +27,14 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_26 = function() {
+(lib.CachedBmp_36 = function() {
 	this.initialize(ss["solveTogether_atlas_1"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_25 = function() {
+(lib.CachedBmp_35 = function() {
 	this.initialize(ss["solveTogether_atlas_1"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
@@ -2611,9 +2611,17 @@ if (reversed == null) { reversed = false; }
 	this.frame_19 = function() {
 		playSound("solveTogether_1");
 	}
+	this.frame_296 = function() {
+		var _this = this;
+		/*
+		Moves the playhead to the specified frame number in the timeline and stops the movie.
+		Can be used on the main timeline or on movie clip timelines.
+		*/
+		_this.gotoAndStop(297);
+	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(19).call(this.frame_19).wait(278));
+	this.timeline.addTween(cjs.Tween.get(this).wait(19).call(this.frame_19).wait(277).call(this.frame_296).wait(1));
 
 	// table
 	this.instance = new lib.gdesk("synched",0);
@@ -2671,20 +2679,20 @@ if (reversed == null) { reversed = false; }
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_7},{t:this.instance_6}]}).to({state:[{t:this.instance_8}]},2).to({state:[{t:this.instance_9}]},15).to({state:[{t:this.instance_10}]},2).to({state:[{t:this.instance_12,p:{startPosition:2}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},1).to({state:[{t:this.instance_12,p:{startPosition:1}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).to({state:[{t:this.instance_12,p:{startPosition:3}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).to({state:[{t:this.instance_12,p:{startPosition:1}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).to({state:[{t:this.instance_12,p:{startPosition:3}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},9).to({state:[{t:this.instance_12,p:{startPosition:1}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).to({state:[{t:this.instance_12,p:{startPosition:2}},{t:this.instance_11,p:{scaleY:0.8321,x:151.8,startPosition:0}}]},6).to({state:[{t:this.instance_12,p:{startPosition:1}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},3).to({state:[{t:this.instance_12,p:{startPosition:2}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).to({state:[{t:this.instance_12,p:{startPosition:2}},{t:this.instance_11,p:{scaleY:0.9704,x:151.65,startPosition:1}}]},2).wait(247));
 
 	// bubble
-	this.text = new cjs.Text("Yo tengo el mismo problema en mi computadora. Nosotros estamos solucionando estos problemas juntos. ", "13px 'Arial'", "#282415");
+	this.text = new cjs.Text("Yo tengo el mismo problema en mi computadora. Nosotros estamos solucionando estos problemas juntos. ", "13px 'Helvetica'", "#282415");
 	this.text.textAlign = "center";
-	this.text.lineHeight = 16;
+	this.text.lineHeight = 17;
 	this.text.lineWidth = 239;
 	this.text.parent = this;
 	this.text.setTransform(130.5,18.05);
 
-	this.instance_13 = new lib.CachedBmp_25();
+	this.instance_13 = new lib.CachedBmp_35();
 	this.instance_13.setTransform(12.65,12.75,0.5,0.5);
 
-	this.instance_14 = new lib.CachedBmp_26();
+	this.instance_14 = new lib.CachedBmp_36();
 	this.instance_14.setTransform(12.65,12.75,0.5,0.5);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_13},{t:this.text,p:{text:"Yo tengo el mismo problema en mi computadora. Nosotros estamos solucionando estos problemas juntos. ",font:"13px 'Arial'",lineHeight:15.5}}]},17).to({state:[{t:this.instance_14},{t:this.text,p:{text:"Apuesto que tu y yo vamos a aprender algo hoy.",font:"15px 'Arial'",lineHeight:17.8}}]},154).wait(126));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_13},{t:this.text,p:{text:"Yo tengo el mismo problema en mi computadora. Nosotros estamos solucionando estos problemas juntos. ",font:"13px 'Helvetica'",lineHeight:17}}]},17).to({state:[{t:this.instance_14},{t:this.text,p:{text:"Apuesto que tu y yo vamos a aprender algo hoy.",font:"15px 'Helvetica'",lineHeight:18.1}}]},154).wait(126));
 
 	// chair
 	this.instance_15 = new lib.gchair("synched",0);
@@ -2829,21 +2837,6 @@ an.handleSoundStreamOnTick = function(event) {
 		var stageChild = stage.getChildAt(0);
 		if(!stageChild.paused || stageChild.ignorePause){
 			stageChild.syncStreamSounds();
-		}
-	}
-}
-an.handleFilterCache = function(event) {
-	if(!event.paused){
-		var target = event.target;
-		if(target){
-			if(target.filterCacheList){
-				for(var index = 0; index < target.filterCacheList.length ; index++){
-					var cacheInst = target.filterCacheList[index];
-					if((cacheInst.startFrame <= target.currentFrame) && (target.currentFrame <= cacheInst.endFrame)){
-						cacheInst.instance.cache(cacheInst.x, cacheInst.y, cacheInst.w, cacheInst.h);
-					}
-				}
-			}
 		}
 	}
 }
